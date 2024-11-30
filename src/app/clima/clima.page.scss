@@ -1,0 +1,30 @@
+.clima-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+}
+
+.temperatura {
+    font-size: 3em;
+    margin: 10px 0;
+}
+
+.descripcion {
+    font-size: 1.2em;
+    color: var(--ion-color-medium);
+}
+
+.ciudad {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.detalles-clima {
+    margin-top: 20px;
+}
+
+ion-card {
+    margin: 16px;
+}

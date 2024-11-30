@@ -1,0 +1,297 @@
+/* Estilos base */
+ion-content {
+  --background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+                                ion-content::before {
+                                  content: "";
+                                  position: absolute;
+                                  top: 0;
+                                  left: 0;
+                                  width: 100%;
+                                  height: 100%;
+                                  background: url('/assets/images/fondo.jpg') no-repeat center center;
+                                  background-size: cover;
+                                  filter: blur(2px) brightness(0.85);
+                                  z-index: -1;
+                                }
+                
+                                ion-content::after {
+                                  content: "";
+                                  position: absolute;
+                                  top: 0;
+                                  left: 0;
+                                  width: 100%;
+                                  height: 100%;
+                                  background: radial-gradient(circle at center,
+                                      rgba(0, 0, 0, 0.2) 0%,
+                                      rgba(0, 0, 0, 0.4) 100%);
+                                  z-index: -1;
+                                }
+                
+                                ion-header::after {
+                                  display: none !important;
+                                }
+                
+                                /* Contenedor principal */
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    justify-content: center;
+    /* Cambiado de flex-start a center */
+      padding: 20px;
+      min-height: 100vh;
+      box-sizing: border-box;
+      width: 100%;
+      margin-top: 20px;
+      /* Ajusta según necesites */
+    }
+    
+    /* Tarjeta principal */
+    ion-card {
+      background: rgba(27, 40, 72, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      margin: 60px auto 0 auto;
+      /* Aumentado el margen superior */
+      width: 90%;
+      max-width: 500px;
+      padding: 25px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    /* Estilos para formularios */
+    ion-item {
+      --background: transparent;
+      --border-width: 0;
+      --inner-padding-end: 0;
+      --padding-start: 0;
+      --padding-end: 0;
+      --highlight-height: 0;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    
+    ion-item ion-label[position="floating"] {
+      color: #FFFFFF !important;
+      /* Cambiado de #4facfe a #FFFFFF */
+      font-size: 16px;
+      transform: translateY(16px);
+      margin: 0;
+    }
+    
+    /* Estilos para inputs */
+    ion-item ion-input,
+    ion-item ion-select {
+      --padding-start: 16px;
+      --padding-end: 16px;
+      --padding-top: 16px;
+      --padding-bottom: 8px;
+      --placeholder-color: #4facfe;
+      --color: #FFFFFF;
+      margin-top: 20px;
+      background: rgba(27, 40, 72, 0.8);
+      border: 1px solid rgba(79, 172, 254, 0.2);
+      border-radius: 8px;
+      height: 48px;
+      width: 100%;
+    }
+    
+    /* Contenedor de botones mejorado */
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+      width: 90%;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Estilos mejorados para botones */
+    ion-button {
+      --background: linear-gradient(135deg, #4facfe, #00f2fe);
+      --border-radius: 50px;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 0;
+      height: 48px;
+      min-height: 48px;
+      font-size: 16px;
+      text-transform: none;
+      width: 100%;
+    }
+    
+    ion-button[color="danger"] {
+      --background: linear-gradient(#911d03, #cf3311);
+      --box-shadow: 0 4px 15px rgba(207, 51, 17, 0.3);
+    }
+    
+    /* Clima container */
+    .clima-container {
+      display: flex;
+      flex-direction: column;
+    align-items: center;
+    text-align: center;
+  padding: 16px;
+    width: 100%;
+  }
+  
+  .clima-container img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 8px;
+  }
+  
+  .clima-container h2 {
+    margin: 8px 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF;
+  }
+  
+  .clima-container p {
+    margin: 4px 0;
+    color: #4facfe;
+  }
+  
+  /* Header */
+  ion-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    --border-width: 0 !important;
+    box-shadow: none !important;
+  }
+  
+  ion-header ion-toolbar {
+    --background: transparent;
+    --border-width: 0 !important;
+    --border-color: transparent;
+    --color: #FFFFFF;
+    --padding-top: 16px;
+    --padding-bottom: 16px;
+    box-shadow: none !important;
+  }
+  
+  ion-toolbar::before,
+  ion-toolbar::after {
+    display: none !important;
+  }
+  
+  ion-header ion-toolbar ion-back-button {
+    --color: #FFFFFF;
+    --icon-font-size: 24px;
+  }
+  
+  ion-header ion-title {
+    color: #FFFFFF;
+    font-size: 20px;
+  }
+  
+  /* Estados focus */
+  ion-item.item-has-focus ion-label[position="floating"] {
+    color: #FFFFFF !important;
+    /* Cambiado para mantener el color blanco en focus */
+  }
+  
+  /* Media queries mejorados */
+  @media (max-width: 768px) {
+  
+    ion-card,
+    .button-container {
+      width: 95%;
+    }
+  
+    ion-card {
+      padding: 20px;
+    }
+  
+    .button-container {
+      padding: 0 8px;
+    }
+  
+    ion-button {
+      font-size: 15px;
+    }
+  
+    ion-card {
+      margin-top: 80px;
+      /* Aumentado para dispositivos móviles */
+    }
+  }
+  
+  @media (max-width: 480px) {
+  
+    ion-card,
+    .button-container {
+      width: 100%;
+    }
+  
+    ion-card {
+      padding: 16px;
+      margin: 10px 0;
+    }
+  
+    #container {
+      padding: 10px;
+    }
+  
+    ion-item ion-input,
+    ion-item ion-select {
+      font-size: 14px;
+      height: 44px;
+    }
+  
+    .button-container {
+      padding: 0;
+      margin-top: 24px;
+    }
+  
+    ion-button {
+      height: 44px;
+      min-height: 44px;
+      font-size: 14px;
+    }
+  
+    ion-item ion-label[position="floating"] {
+      font-size: 14px;
+    }
+  }
+  
+  /* Estilos Material Design */
+  mat-form-field {
+    width: 100%;
+    margin: 16px 0 8px 0;
+  }
+  
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+    background: rgba(27, 40, 72, 0.8);
+    border-radius: 8px;
+  }
+  
+  .mat-form-field-flex {
+    padding: 0 16px !important;
+    background: transparent !important;
+  }
+  
+.mat-input-element,
+.mat-select-value {
+  color: #FFFFFF !important;
+}
+  
+.mat-datepicker-toggle {
+  color: #4facfe;
+}

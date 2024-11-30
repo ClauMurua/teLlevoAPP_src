@@ -1,0 +1,201 @@
+ion-content {
+  --background: url('/assets/images/fondo.jpg') no-repeat center center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  #container {
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  animation: fadeIn 0.5s ease-out;
+}
+
+ion-card {
+  width: 100%;
+    max-width: 400px;
+    padding: 45px;
+    background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  ion-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .header-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  }
+  
+  .user-icon {
+    font-size: 40px;
+    color: #E8EAF6;
+    padding: 15px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  ion-card-title {
+    color: #E8EAF6;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  ion-card-subtitle {
+    color: #C5CAE9;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .custom-item {
+    --background: transparent !important;
+    --background-hover: transparent !important;
+    --background-focused: transparent !important;
+    --background-activated: transparent !important;
+    --border-color: rgba(232, 234, 246, 0.3);
+    --border-radius: 10px;
+    --border-width: 1px;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --highlight-height: 1px;
+    --highlight-color-focused: rgba(232, 234, 246, 0.5);
+    margin-bottom: 12px;
+    --min-height: 45px;
+  }
+  
+  .custom-item:last-child {
+    margin-bottom: 20px;
+  }
+  
+  ion-label {
+    color: #C5CAE9;
+    opacity: 0.9;
+    font-size: 14px;
+  }
+  
+  ion-input {
+    --color: #E8EAF6 !important;
+    --padding-start: 8px;
+    --placeholder-opacity: 0.7;
+    --padding-top: 2px;
+    --padding-bottom: 2px;
+    height: 35px;
+  }
+  
+  ion-input.custom-input {
+    background: transparent;
+    margin-top: 2px;
+    height: 35px;
+  }
+  
+  .submit-button {
+    --background: linear-gradient(135deg, #1A237E, #303F9F);
+    --border-radius: 50px;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    margin-bottom: 16px;
+    height: 48px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  
+  .submit-button:hover {
+    --background: linear-gradient(135deg, #283593, #3949AB);
+    opacity: 0.95;
+  }
+
+.back-button {
+  --background: transparent;
+  --background-hover: transparent;
+    --color: #C5CAE9;
+    font-size: 14px;
+    height: 40px;
+}
+
+.back-button:hover {
+  --color: #E8EAF6;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Estilos para alertas */
+.alert-wrapper {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+.alert-head h2 {
+  color: #1A237E;
+  font-weight: 600;
+}
+.alert-message {
+  color: #303F9F;
+}
+.alert-button {
+  color: #1A237E;
+  font-weight: 500;
+}
+.custom-alert-wrapper {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 15px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  padding: 16px !important;
+}
+.custom-alert-header {
+  color: #1A237E !important;
+  font-weight: bold !important;
+  font-size: 18px !important;
+  text-align: center !important;
+}
+.custom-alert-message {
+  color: #303F9F !important;
+  font-size: 16px !important;
+  text-align: center !important;
+  padding: 0 10px !important;
+}
+.custom-alert-button {
+  color: #1A237E !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  text-transform: uppercase !important;
+}
+/* Validación de inputs */
+ion-item.custom-item ion-input[type="email"] {
+  font-family: inherit;
+  letter-spacing: 0.5px;
+}
+ion-item.custom-item.item-has-value.ion-valid {
+  --border-color: rgba(75, 255, 75, 0.3);
+}
+ion-item.custom-item.item-has-value.ion-invalid {
+  --border-color: rgba(255, 75, 75, 0.3);
+}
+@media (max-width: 768px) {
+  ion-card {
+    max-width: 320px;
+    padding: 30px;
+  }
+}

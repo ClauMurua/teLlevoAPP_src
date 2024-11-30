@@ -1,0 +1,313 @@
+/* Estilos base del contenido */
+ion-content {
+  --background: none;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fondo con efecto blur */
+ion-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/images/fondo.jpg') no-repeat center center;
+  background-size: cover;
+  filter: blur(2px) brightness(0.85);
+  z-index: -1;
+}
+
+/* Overlay gradiente */
+ion-content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
+  z-index: -1;
+}
+
+/* Efectos hover */
+.hover-card .hover-text {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hover-card:hover .hover-text {
+  opacity: 1;
+}
+
+/* Botón de sesión */
+.session-button {
+  --background: linear-gradient(135deg, #13212c, #1d3a4a);
+  --border-radius: 25px;
+    --box-shadow: 0 4px 6px rgba(240, 229, 241, 0.3);
+  --color: #FFFFFF;
+  position: right;
+    top: -80px;
+    right: -190px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: none;
+  height: auto;
+  margin: 4px;
+  z-index: 100;
+}
+
+/* Contenedor principal */
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  padding: 20px;
+  padding-top: 80px;
+}
+
+/* Sección de bienvenida */
+.seccion-bienvenida {
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+  width: 100%;
+}
+
+.mensaje-bienvenida,
+.action-question {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor de tarjetas */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+  padding: 0 15px;
+}
+
+/* Estilos de tarjetas */
+ion-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  margin: 0;
+  height: clamp(200px, 30vh, 250px);
+    overflow: hidden;
+  }
+  
+  ion-card ion-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1;
+  }
+  
+  .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(0px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+    z-index: 2;
+  padding: 15px;
+}
+
+ion-card-header {
+  background: transparent;
+  padding: 15px;
+  position: relative;
+  z-index: 3;
+}
+
+ion-card-title {
+  color: white;
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+ion-card-content {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Efectos hover para tarjetas */
+@media (hover: hover) {
+  ion-card:hover ion-img {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+
+  ion-card:hover .card-overlay {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+  
+}
+
+/* Botones */
+ion-button {
+  --background: linear-gradient(135deg, #13212c, #1d3a4a);
+  --border-radius: 50px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --color: white;
+    margin-top: 20px;
+  }
+  
+  ion-button[disabled] {
+    opacity: 0.5;
+    --background: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  .hover-card ion-button[disabled] {
+    opacity: 0.5;
+    --background: #ccc;
+    pointer-events: none;
+  }
+  
+  .continuar-sin-sesion {
+    --background: linear-gradient(#911d03, #cf3311);
+  --border-radius: 50px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  --color: white !important;
+  }
+  
+  /* Estilos del alert personalizado */
+  :host {
+    --ion-color-primary: #13212c;
+    --ion-color-primary-rgb: 19, 33, 44;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+    --ion-color-primary-shade: #111d27;
+    --ion-color-primary-tint: #2b3741;
+  }
+/* Estilos del alert */
+.custom-alert .alert-wrapper {
+  background: rgba(19, 33, 44, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+.custom-alert .alert-head {
+  padding: 20px 20px 10px;
+}
+.custom-alert .alert-title {
+  color: #FFFFFF;
+  font-size: 1.3em;
+  font-weight: 600;
+  text-align: center;
+}
+.custom-alert .alert-message {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1em;
+  padding: 20px;
+  text-align: center;
+}
+
+.custom-alert .alert-button-group {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 10px;
+}
+.custom-alert button {
+  flex: 1;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 0.95em;
+  font-weight: 500;
+  text-transform: none;
+  transition: all 0.3s ease;
+}
+.custom-alert .alert-button-cancel {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+.custom-alert .alert-button-cancel:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.custom-alert .alert-button-confirm {
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #13212c, #1d3a4a);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.custom-alert .alert-button-confirm:hover {
+  background: linear-gradient(135deg, #1d3a4a, #2b5875);
+  transform: translateY(-1px);
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  #container {
+      padding-top: 60px;
+    }
+  
+  .cards-container {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+  
+  ion-card {
+    height: 180px;
+    }
+    
+.session-button {
+  --padding-start: 15px;
+  --padding-end: 15px;
+  font-size: 13px;
+  top: 15px;
+  right: 15px;
+}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+}

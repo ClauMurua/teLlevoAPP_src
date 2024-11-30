@@ -1,0 +1,47 @@
+<ion-content>
+  <div class="logo-container">
+    <img src="assets/images/teLlevoAppLogo2.png" alt="Logo" class="logo-image">
+  </div>
+  <div class="login-wrapper">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Inicio de Sesión</ion-card-title>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <form (ngSubmit)="navegarHome()">
+          <ion-item lines="none" class="ion-no-padding">
+            <ion-label position="floating">Usuario</ion-label>
+            <ion-input [(ngModel)]="username" name="username" required type="text"></ion-input>
+          </ion-item>
+          
+          <ion-item lines="none" class="ion-no-padding">
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input [(ngModel)]="password" name="password" required type="password"></ion-input>
+          </ion-item>
+          <ion-item lines="none" class="custom-select">
+            <ion-label position="floating">Selecciona un modo</ion-label>
+            <ion-select [(ngModel)]="selectedRole" name="role" interface="popover" placeholder="Seleccione...">
+              <ion-select-option value="conductor">Conductor</ion-select-option>
+              <ion-select-option value="pasajero">Pasajero</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-button expand="block" type="submit">
+            INGRESAR
+          </ion-button>
+        </form>
+        
+        <div class="enlaces-wrapper">
+          <a [routerLink]="['/reset-password']" class="enlace-olvidado">
+            ¿Has olvidado la contraseña?
+          </a>
+          <p class="registro-texto">
+            ¿No tienes una cuenta?
+            <a [routerLink]="['/ingreso-usuario']" class="registro-link">Regístrate</a>
+          </p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

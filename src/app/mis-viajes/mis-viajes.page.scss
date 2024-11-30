@@ -1,0 +1,217 @@
+ion-content {
+  --background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  ion-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/assets/images/fondo.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(2px) brightness(0.85);
+    z-index: -1;
+  }
+  
+  ion-content::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.4) 100%);
+    z-index: -1;
+  }
+  
+  ion-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: transparent !important;
+    --background: transparent !important;
+  
+    ion-toolbar {
+      --background: transparent !important;
+      --border-color: transparent !important;
+      --border-width: 0 !important;
+      --color: white;
+      --min-height: 56px;
+      --padding-top: 8px;
+      --padding-bottom: 8px;
+      --padding-start: 16px;
+      --padding-end: 16px;
+      padding-top: var(--ion-safe-area-top, 0);
+  
+      ion-back-button {
+        --color: white;
+  
+        &:hover {
+          --color: #4facfe;
+        }
+      }
+    }
+  }
+  
+  .header-md::after,
+  .toolbar-background {
+    background: transparent !important;
+    background-image: none !important;
+  }
+  
+  .header-md::after,
+  .header-ios::after {
+    display: none !important;
+  }
+  
+  .viajes-container {
+    padding: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .vista-actual {
+    background: rgba(27, 40, 72, 0.8);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+  
+    h2 {
+      color: #4facfe;
+      font-size: 14px;
+      margin: 0;
+      font-weight: normal;
+    }
+  }
+  
+  .viajes-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .viaje-card {
+    background: rgba(27, 40, 72, 0.95);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+  
+    .viaje-header {
+      padding: 0 0 16px 0;
+  
+      .viaje-titulo {
+        color: #FFFFFF;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+      }
+  
+      .conductor-info {
+        color: #4facfe;
+        font-size: 14px;
+        margin: 8px 0 0;
+      }
+  }
+
+    .viaje-content {
+      flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    
+      .viaje-info {
+        display: flex;
+        align-items: center;
+      gap: 8px;
+        color: #4facfe;
+      
+        ion-icon {
+          font-size: 18px;
+          min-width: 18px;
+        }
+      
+        span {
+          font-size: 14px;
+          color: #FFFFFF;
+        }
+      }
+      }
+      }
+      
+      .no-viajes {
+        grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 20px;
+    background: rgba(27, 40, 72, 0.8);
+    border-radius: 20px;
+    color: #4facfe;
+  
+    .no-viajes-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      margin: 0;
+    font-size: 16px;
+      color: #FFFFFF;
+      opacity: 0.8;
+    }
+    }
+@media (min-width: 768px) {
+  .viajes-lista {
+      grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+  .viajes-lista {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .viajes-container {
+    padding: 15px;
+
+    .viaje-card {
+      padding: 15px;
+
+      .viaje-header {
+        padding: 0 0 12px 0;
+
+        .viaje-titulo {
+          font-size: 16px;
+        }
+      }
+        }
+        }
+        }
+
+.ios,
+.md {
+  ion-toolbar {
+    --background: rgba(27, 40, 72, 0.1) !important;
+    background: rgba(27, 40, 72, 0.1) !important;
+  }
+}

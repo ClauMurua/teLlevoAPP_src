@@ -1,0 +1,78 @@
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Clima</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content *ngIf="climaActual">
+      <!-- Vista Principal -->
+      <div class="clima-actual ion-text-center">
+        <img [src]="obtenerIconoUrl(climaActual.weather[0].icon)" [alt]="climaActual.weather[0].description"
+          class="clima-icon">
+
+        <h2 class="temperatura">
+          {{ climaActual.main.temp | number:'1.0-0' }}°C
+        </h2>
+
+        <p class="descripcion">
+          {{ climaActual.weather[0].description | titlecase }}
+        </p>
+
+        <p class="ciudad">{{ climaActual.name }}</p>
+      </div>
+
+      <!-- Botón Ver Pronóstico -->
+      <ion-button expand="block" (click)="toggleDetalles()" class="ion-margin-top">
+        <ion-icon name="thermometer-outline" slot="start"></ion-icon>
+        {{ mostrarDetalles ? 'Ocultar detalles' : 'VER PRONÓSTICO' }}
+      </ion-button>
+
+      <!-- Detalles del Clima -->
+      <div *ngIf="mostrarDetalles" class="detalles-clima ion-margin-top">
+        <ion-list>
+          <ion-item>
+            <ion-label>
+              <h3>Sensación Térmica</h3>
+              <p>{{ climaActual.main.feels_like | number:'1.0-0' }}°C</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>
+              <h3>Humedad</h3>
+              <p>{{ climaActual.main.humidity }}%</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>
+              <h3>Velocidad del Viento</h3>
+              <p>{{ climaActual.wind.speed }} m/s</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>
+              <h3>Temperatura Mínima</h3>
+              <p>{{ climaActual.main.temp_min | number:'1.0-0' }}°C</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>
+              <h3>Temperatura Máxima</h3>
+              <p>{{ climaActual.main.temp_max | number:'1.0-0' }}°C</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-card-content>
+
+    <!-- Mensaje de Error -->
+    <ion-card-content *ngIf="error" class="ion-text-center">
+      <ion-text color="danger">
+        {{ error }}
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

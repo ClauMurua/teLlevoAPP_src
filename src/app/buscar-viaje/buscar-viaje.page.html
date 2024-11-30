@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Buscar Viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="calendario-container">
+    <mat-form-field appearance="fill" class="calendario-field">
+      <mat-label>Selecciona una fecha</mat-label>
+      <input matInput [matDatepicker]="picker" [formControl]="dateControl" (dateChange)="buscarViajesPorFecha($event)">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <ion-button fill="clear" (click)="limpiarBusqueda()" *ngIf="viajesFiltrados.length > 0">
+      Limpiar búsqueda
+    </ion-button>
+  </div>
+
+  <div class="resultados-container">
+    <ion-card *ngFor="let viaje of viajesFiltrados">
+      <ion-card-header>
+        <ion-card-title>{{ viaje.puntoPartida }} - {{ viaje.destino }}</ion-card-title>
+        <ion-card-subtitle>{{ formatearFecha(viaje.fecha) }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <ion-text>
+                <h3>Precio:</h3>
+                <p>${{ viaje.costoViaje | number }}</p>
+              </ion-text>
+            </ion-col>
+            <ion-col size="6">
+              <ion-text>
+                <h3>Asientos:</h3>
+                <p>{{ viaje.asientosDisponibles }} disponibles</p>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-button expand="block" [disabled]="viaje.asientosDisponibles === 0" (click)="seleccionarViaje(viaje)"
+          class="select-button">
+          {{ viaje.asientosDisponibles === 0 ? 'No hay asientos disponibles' : 'Seleccionar Viaje' }}
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <div *ngIf="viajesFiltrados.length === 0 && dateControl.value" class="no-resultados">
+      <p>No hay viajes disponibles para la fecha seleccionada</p>
+    </div>
+  </div>
+</ion-content>
