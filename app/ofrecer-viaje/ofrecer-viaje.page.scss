@@ -1,0 +1,284 @@
+:root {
+  --ion-toolbar-background: transparent;
+  --ion-toolbar-background-color: transparent;
+}
+
+ion-header {
+  position: absolute;
+  z-index: 1000;
+}
+
+ion-header[translucent],
+ion-header.header-md,
+ion-header.header-ios {
+  --background: transparent !important;
+  --ion-background-color: transparent !important;
+  background: transparent !important;
+}
+
+ion-toolbar {
+  --background: transparent !important;
+  --ion-toolbar-background: transparent !important;
+  --ion-toolbar-background-color: transparent !important;
+  --min-height: 56px;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --border-width: 0 !important;
+  --border-color: transparent !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Asegurarse de que no haya líneas o bordes */
+ion-header::after,
+ion-header::before,
+ion-toolbar::after,
+ion-toolbar::before {
+  display: none !important;
+  background: none !important;
+  background-image: none !important;
+}
+
+/* Estilos para los elementos dentro del toolbar */
+ion-title {
+  color: white !important;
+  font-weight: 500;
+}
+
+ion-back-button {
+  --color: white !important;
+  --icon-font-size: 24px !important;
+  --icon-margin-end: 8px;
+  --min-height: 32px;
+}
+/* Estilos base */
+ion-content {
+  --background: none;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  height: 100%;
+  position: relative;
+    overflow: hidden;
+  }
+  
+    ion-content::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+  background: url('/assets/images/imagen-ofrecer-viaje.jpg') no-repeat center center;
+    background-size: cover;
+  z-index: -1;
+  }
+  
+  ion-content::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: -1;
+  }
+/* Contenedor principal */
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Tarjeta principal */
+ion-card {
+  background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin: 60px auto 0 auto;
+  width: 90%;
+    max-width: 500px;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos para formularios */
+ion-item {
+  --background: transparent;
+  --border-width: 0;
+  --inner-padding-end: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+  --highlight-height: 0;
+  margin-bottom: 20px;
+  width: 100%;
+}
+/* Etiquetas flotantes */
+ion-item ion-label[position="floating"] {
+  color: #FFFFFF !important;
+  font-size: 16px;
+    transform: translateY(16px);
+    margin: 0;
+  }
+/* Estilo para punto de partida y destino */
+ion-select {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+    --placeholder-color: #FFFFFF;
+    --color: #FFFFFF;
+    margin-top: 20px;
+    background: rgba(27, 40, 72, 0.8);
+    border: 1px solid rgba(79, 172, 254, 0.2);
+    border-radius: 8px;
+    height: 48px;
+    width: 100%;
+  }
+/* Ajustes para Material Design inputs */
+.full-width {
+  width: 100% !important;
+  margin: 0 auto;
+}
+
+mat-form-field {
+  width: 100% !important;
+  border-radius: 8px;
+  padding: 0 10px;
+  background: transparent !important;
+}
+
+mat-form-field .mat-form-field-wrapper {
+  background-color: white;
+  border-radius: 8px;
+  padding: 0 !important;
+}
+.mat-input-element {
+  background-color: white !important;
+}
+.mat-select-value {
+  background-color: white !important;
+}
+
+/* Clima container */
+.clima-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+    background: rgba(27, 40, 72, 0.4);
+    border-radius: 16px;
+    width: 350px !important;
+    margin: 20px auto;
+  }
+  
+  .clima-container img {
+  width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+  }
+  
+  .clima-container h2 {
+    margin: 8px 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF;
+  }
+  
+  .clima-container p {
+    margin: 4px 0;
+    color: #4facfe;
+  }
+/* Contenedor de botones */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+  width: 90% !important;
+  max-width: 500px !important;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+/* Estilos para botones */
+ion-button {
+  --background: #182D3B;
+  --border-radius: 50px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --color: #FFFFFF;
+  margin: 8px 0;
+    height: 48px;
+    min-height: 48px;
+    font-size: 16px;
+    text-transform: none;
+    width: 100% !important;
+  }
+ion-button[color="danger"] {
+  --background: linear-gradient(#911d03, #cf3311);
+  --box-shadow: 0 4px 15px rgba(207, 51, 17, 0.3);
+  --color: #FFFFFF !important;
+}
+/* Media queries */
+@media (max-width: 768px) {
+  ion-card {
+      width: 95%;
+    padding: 20px;
+    margin-top: 80px;
+    
+      .button-container {
+    width: 95% !important;
+      padding: 0;
+    }
+    
+    ion-button {
+      font-size: 15px;
+    }
+        .clima-container {
+          width: 100% !important;
+    }
+        }
+  
+        @media (max-width: 480px) {
+  ion-card {
+      width: 100%;
+    padding: 16px;
+      margin: 10px 0;
+    }
+    
+    #container {
+      padding: 10px;
+    }
+        mat-form-field {
+      font-size: 14px;
+  .button-container {
+    width: 100% !important;
+    padding: 0;
+      margin-top: 24px;
+    }
+    
+    ion-button {
+      height: 44px;
+      min-height: 44px;
+      font-size: 14px;
+    }
+    
+    ion-item ion-label[position="floating"] {
+      font-size: 14px;
+    }
+}
+}
+}

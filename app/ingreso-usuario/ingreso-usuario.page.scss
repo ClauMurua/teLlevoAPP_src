@@ -1,0 +1,218 @@
+ion-content {
+  --background: url('/assets/images/imagen-crear-usuario.jpg') no-repeat center center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  #container {
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+    width: 100%;
+    height: 100%;
+  animation: fadeIn 0.5s ease-out;
+}
+
+ion-card {
+  width: 100%;
+  max-width: 400px;
+    padding: 45px;
+    background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+.header-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.user-icon {
+  font-size: 40px;
+  color: #000000;
+    padding: 15px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  ion-card-title {
+  color: #000000;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  ion-card-subtitle {
+  color: #000000;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .custom-item {
+    --background: transparent !important;
+    --background-hover: transparent !important;
+    --background-focused: transparent !important;
+    --background-activated: transparent !important;
+  --border-color: rgba(0, 0, 0, 0.3);
+    --border-radius: 10px;
+    --border-width: 1px;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --highlight-height: 1px;
+  --highlight-color-focused: rgba(0, 0, 0, 0.5);
+    margin-bottom: 12px;
+    --min-height: 45px;
+
+  &:last-child {
+    margin-bottom: 20px;
+  }
+
+    &.item-has-value {
+      &.ion-valid {
+        --border-color: rgba(75, 255, 75, 0.3);
+      }
+  
+      &.ion-invalid {
+        --border-color: rgba(255, 75, 75, 0.3);
+      }
+    }
+    }
+ion-label {
+  color: #000000 !important;
+    opacity: 0.9;
+    font-size: 14px;
+  }
+  
+  ion-input {
+  --color: #000000 !important;
+    --placeholder-color: #000000 !important;
+    --placeholder-opacity: 0.7;
+  --padding-start: 8px;
+  --padding-top: 2px;
+    --padding-bottom: 2px;
+    height: 35px;
+  color: #000000;
+  &.custom-input {
+    background: transparent;
+    margin-top: 2px;
+    height: 35px;
+  }
+
+    &::placeholder {
+      color: #000000;
+      opacity: 0.7;
+    }
+    }
+  
+    ion-item {
+      --highlight-color-focused: #000000;
+  
+      ion-label {
+        color: #000000 !important;
+        opacity: 0.9;
+      }
+    }
+.submit-button {
+  --background: linear-gradient(135deg, #1A237E, #303F9F);
+  --border-radius: 50px;
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  margin-bottom: 16px;
+  height: 48px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    --background: linear-gradient(135deg, #283593, #3949AB);
+    opacity: 0.95;
+  }
+}
+
+.back-button {
+  --background: transparent;
+  --background-hover: transparent;
+  --color: #000000;
+    font-size: 14px;
+    height: 40px;
+
+  &:hover {
+      --color: #000000;
+    }
+}
+
+.alert-wrapper {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.alert-head h2 {
+  color: #000000;
+  font-weight: 600;
+}
+
+.alert-message {
+  color: #000000;
+}
+
+.alert-button {
+  color: #000000;
+  font-weight: 500;
+}
+
+.custom-alert-wrapper {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 15px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  padding: 16px !important;
+}
+
+.custom-alert-header {
+  color: #000000 !important;
+  font-weight: bold !important;
+  font-size: 18px !important;
+  text-align: center !important;
+}
+
+.custom-alert-message {
+  color: #000000 !important;
+  font-size: 16px !important;
+  text-align: center !important;
+  padding: 0 10px !important;
+}
+
+.custom-alert-button {
+  color: #000000 !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  text-transform: uppercase !important;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+  ion-card {
+    max-width: 320px;
+    padding: 30px;
+  }
+}

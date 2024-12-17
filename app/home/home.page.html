@@ -1,0 +1,67 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div id="container">
+    <ion-buttons slot="end">
+      <ion-button class="session-button" (click)="manejarSesion()">
+        <ion-label>{{ logueado ? 'Cerrar Sesión' : 'Iniciar Sesión' }}</ion-label>
+      </ion-button>
+      <!-- Nuevo enlace a perfil -->
+      <ion-button *ngIf="logueado" [routerLink]="['/perfil-usuario']">
+        <ion-label>Ir a perfil</ion-label>
+      </ion-button>
+    </ion-buttons>
+    <div class="seccion-bienvenida">
+      <h2 class="mensaje-bienvenida">Bienvenido, {{username}}</h2>
+      <h3 class="action-question">¿Qué deseas hacer hoy?</h3>
+    </div>
+
+    <div class="cards-container">
+      <!-- Primera card - Ofrecer viaje -->
+      <ion-card class="hover-card" *ngIf="shouldShowCard('ofrecer')">
+        <ion-img src="assets/images/ofrecer-viaje2.jpg" alt="Ofrecer viaje"></ion-img>
+        <div class="card-overlay">
+          <ion-card-header>
+            <ion-card-title>Ofrecer un viaje</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <span class="hover-text">¿Tienes un vehículo y quieres llevar a otros estudiantes?</span>
+            <ion-button [disabled]="!logueado || (authService.obtenerRol() === 'pasajero')" expand="block" (click)="ofrecerViaje()">
+              Comparte tu viaje
+            </ion-button>
+          </ion-card-content>
+        </div>
+      </ion-card>
+
+      <!-- Segunda card - Buscar viaje -->
+      <ion-card class="hover-card" *ngIf="shouldShowCard('buscar')">
+        <ion-img src="assets/images/buscar-viaje2.jpg" alt="Buscar viaje"></ion-img>
+        <div class="card-overlay">
+          <ion-card-header>
+            <ion-card-title>Buscar un viaje</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <span class="hover-text">¿Necesitas transporte para volver a casa?</span>
+            <ion-button [disabled]="!logueado || (authService.obtenerRol() === 'conductor')" expand="block" (click)="buscarViaje()">
+              Encuentra tu viaje
+            </ion-button>
+          </ion-card-content>
+        </div>
+      </ion-card>
+
+      <!-- Tercera card - Mis viajes -->
+      <ion-card class="hover-card">
+        <ion-img src="assets/images/mis-viajes2.jpg" alt="Mis viajes"></ion-img>
+        <div class="card-overlay">
+          <ion-card-header>
+            <ion-card-title>Mis viajes</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <span class="hover-text">Revisa tus viajes programados o solicitudes pendientes.</span>
+            <ion-button [disabled]="!logueado" expand="block" (click)="verMisViajes()">
+              VER MIS VIAJES
+            </ion-button>
+          </ion-card-content>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

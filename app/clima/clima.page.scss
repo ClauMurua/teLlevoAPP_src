@@ -1,0 +1,79 @@
+ion-content {
+    --background: var(--ion-color-light);
+}
+
+ion-card {
+    margin: 16px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.clima-actual {
+    padding: 16px;
+}
+  .clima-icon {
+    font-size: 100px;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    display: block;
+    color: var(--ion-color-primary);
+.temperatura {
+    font-size: 3em;
+    margin: 10px 0;
+    font-weight: bold;
+        color: var(--ion-color-dark);
+.descripcion {
+    font-size: 1.2em;
+    color: var(--ion-color-medium);
+    text-transform: capitalize;
+        margin: 8px 0;
+.ciudad {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px 0;
+    color: var(--ion-color-dark);
+    
+        .detalles-clima {
+            margin-top: 20px;
+    
+            ion-list {
+                background: transparent;
+    
+                ion-item {
+                    --padding-start: 0;
+                    --inner-padding-end: 0;
+                    --background: transparent;
+    
+                    h3 {
+                        color: var(--ion-color-medium);
+                        font-weight: 500;
+                        font-size: 1em;
+                    }
+    
+                    p {
+                        color: var(--ion-color-dark);
+                        font-weight: 600;
+                        font-size: 1.1em;
+                        margin-top: 4px;
+                    }
+                }
+                }
+                ion-button {
+                    margin: 16px 0;
+                    --border-radius: 10px;
+        
+                    ion-icon {
+                        margin-right: 8px;
+                    }
+                }
+                ion-text[color="danger"] {
+                    font-size: 1.1em;
+                    display: block;
+                    padding: 16px;
+                }
+                }
+                }
+                }
+                }
+                }

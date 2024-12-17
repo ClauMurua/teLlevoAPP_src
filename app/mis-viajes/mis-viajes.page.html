@@ -1,0 +1,68 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mis Viajes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="actualizarManualmente()">
+        <ion-icon name="refresh-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Desliza para actualizar"
+      refreshingSpinner="circles" refreshingText="Actualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div class="viajes-container">
+    <div class="vista-actual">
+      <ion-text>
+        <h2>Viendo como: {{ rolActual === 'conductor' ? 'Conductor' : 'Pasajero' }}</h2>
+      </ion-text>
+    </div>
+
+    <div class="viajes-lista">
+      <div class="viaje-card" *ngFor="let viaje of viajesFiltrados">
+        <div class="viaje-header">
+          <h2 class="viaje-titulo">{{ viaje.puntoPartida }} - {{ viaje.destino }}</h2>
+          <p class="conductor-info" *ngIf="rolActual === 'pasajero'">
+            Conductor: {{ viaje.conductorUsername }}
+          </p>
+        </div>
+        <div class="viaje-content">
+          <div class="viaje-info">
+            <ion-icon name="calendar-outline"></ion-icon>
+            <span>{{ viaje.fecha | date:'mediumDate' }}</span>
+          </div>
+          <div class="viaje-info">
+            <ion-icon name="time-outline"></ion-icon>
+            <span>{{ viaje.horaSalida }} hrs</span>
+            </div>
+            <div class="viaje-info">
+            <ion-icon name="cash-outline"></ion-icon>
+            <span>${{ viaje.costoViaje }}</span>
+          </div>
+          <div class="viaje-info" *ngIf="rolActual === 'conductor'">
+            <ion-icon name="people-outline"></ion-icon>
+            <span>{{ viaje.asientosDisponibles }} asientos disponibles</span>
+          </div>
+          <div class="viaje-info" *ngIf="viaje.clima">
+            <ion-icon name="thermometer-outline"></ion-icon>
+            <span>{{ viaje.clima.temperatura }}°C</span>
+            <ion-icon [name]="viaje.clima.iconName" class="clima-icon"></ion-icon>
+          </div>
+        </div>
+      </div>
+
+      <div class="no-viajes" *ngIf="viajesFiltrados.length === 0">
+        <ion-icon name="car-outline" class="no-viajes-icon"></ion-icon>
+        <p>No tienes viajes como {{ rolActual }}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

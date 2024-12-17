@@ -1,0 +1,79 @@
+<!-- perfil-usuario.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mi Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="profile-container">
+    <!-- Sección de foto de perfil -->
+    <div class="photo-section">
+      <div class="photo-container" (click)="tomarFoto()">
+        <div class="default-avatar">
+          <ion-icon name="person-circle-outline"></ion-icon>
+        </div>
+        <img [src]="photoUrl || ''" class="profile-photo">
+        <div class="photo-overlay">
+          <ion-icon name="camera"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <!-- Información del usuario -->
+    <div class="user-info">
+      <ion-badge class="role-badge" [color]="authState?.currentRole === 'conductor' ? 'primary' : 'secondary'">
+        {{authState?.currentRole | titlecase}}
+      </ion-badge>
+
+      <form [formGroup]="profileForm" (ngSubmit)="actualizarContrasena()">
+        <!-- Datos personales -->
+        <ion-item>
+          <ion-label position="floating">Nombre de Usuario</ion-label>
+          <ion-input formControlName="username" type="text" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Correo Electrónico</ion-label>
+          <ion-input formControlName="email" type="email" readonly></ion-input>
+        </ion-item>
+
+        <!-- Sección de cambio de contraseña -->
+        <div class="password-section">
+          <h3>Cambiar Contraseña</h3>
+
+          <ion-item>
+            <ion-label position="floating">Contraseña Actual</ion-label>
+            <ion-input formControlName="currentPassword" type="password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Nueva Contraseña</ion-label>
+            <ion-input formControlName="newPassword" type="password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Confirmar Nueva Contraseña</ion-label>
+            <ion-input formControlName="confirmPassword" type="password"></ion-input>
+          </ion-item>
+
+          <div class="error-message" *ngIf="profileForm.errors?.['mismatch']">
+            Las contraseñas no coinciden
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <ion-button expand="block" type="submit" [disabled]="!profileForm.valid || 
+                              (!profileForm.get('currentPassword')?.value && 
+                                !profileForm.get('newPassword')?.value && 
+                                !profileForm.get('confirmPassword')?.value)">
+            Actualizar Contraseña
+          </ion-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>
